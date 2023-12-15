@@ -329,9 +329,9 @@ def trial_sim(Condition):
     if Condition == 'Sero':
         GoC_GoC = Synapses(GoC,GoC,
                            model = 'g_i_tot_GoC_post = g_i : siemens (summed)',
-                           on_pre = 'g_i += w_i_GoC*(rand()<0.8)',
+                           on_pre = 'g_i += w_i_GoC*(rand()<0.8)', #IPSC failure weight = o.2
                            delay = tau_r_GoC)
-        GoC_GoC.connect(p = 0.2)
+        GoC_GoC.connect(p = 0.2) #recurrent synapse distribution
     # seed(4321)
     GrC_GoC.connect(p = conv_GrC_GoC/nGoC)
 
