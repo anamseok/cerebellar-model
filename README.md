@@ -3,7 +3,7 @@ This repository is about cerebellar system model : Golgi-Mossy Fiber-Granule cel
 ## Acetylcholine and Serotonin treated cerebellar system model
 This model designed to invest spiking activity of granule cells in normal/Acetylcholine/Serotonin Condition. <br/> 
 Network of Normal and Acetylcholine Condition is based on "https://github.com/trfore/chatmodel.git"<br/>
-For serotonin(5-HT), further variables are referd in: <br/>
+For Serotonin(5-HT), further variables are referd in: <br/>
 >1. Fleming, E., & Hull, C. (2019). Serotonin regulates dynamics of cerebellar granule cell activity by modulating tonic inhibition. Journal of neurophysiology, 121(1), 105-114.<br/>
 >2. Regehr, W. G. (2012). Identification of an inhibitory circuit that regulates cerebellar Golgi cell activity. Neuron, 73(1), 149-158.
 ### Fixed parameters in Control
