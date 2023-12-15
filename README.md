@@ -8,6 +8,6 @@ Normal and Acetylcholine Condition is based on "https://github.com/trfore/chatmo
 | GrC       |   -75   |   -55    |   3.1   |   0.2   |    1    |   -75   |    0    |   -75   |     0.05     |     20     |     12     |     20     |
 | GoC       |   -55   |   -50    |   60    |    3    |    0    |   -51   |    0    |   -75   |      0.1     |     20     |     12     |     0      |
 <br/>
-For serotonin, further variables are described in:
-> 1. Fleming, E., & Hull, C. (2019). Serotonin regulates dynamics of cerebellar granule cell activity by modulating tonic inhibition. Journal of neurophysiology, 121(1), 105-114.<br/>
-> 2. Regehr, W. G. (2012). Identification of an inhibitory circuit that regulates cerebellar Golgi cell activity. Neuron, 73(1), 149-158.
+For serotonin, further variables are described in: <br/>
+>1. Fleming, E., & Hull, C. (2019). Serotonin regulates dynamics of cerebellar granule cell activity by modulating tonic inhibition. Journal of neurophysiology, 121(1), 105-114.<br/>
+>2. Regehr, W. G. (2012). Identification of an inhibitory circuit that regulates cerebellar Golgi cell activity. Neuron, 73(1), 149-158.
