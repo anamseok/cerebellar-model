@@ -23,7 +23,7 @@ In 5-HT treated condition, negative feedback of Golgi cell to other Golgi cells 
 * average synaptic weight : 0.33±0.08 nS
 * IPSC failure rate : ~20%
 ### References
-* (10.1016/j.neuron.2011.10.030)
+* (https://doi.org/10.1016/j.neuron.2011.10.030)
 * (https://doi.org/10.1152/jn.00492.2018)
 * (https://doi.org/10.1523/JNEUROSCI.2148-19.2020)
-* (10.1523/JNEUROSCI.21-16-06045.2001)
+* (https://doi.org/10.1523/JNEUROSCI.21-16-06045.2001)
