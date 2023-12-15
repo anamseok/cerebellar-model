@@ -238,7 +238,7 @@ def trial_sim(Condition):
                           refractory = 'tau_r_GrC',
                           method     = 'euler')
         GrC.v   = V_r_GrC
-        # Tonic reduction mean = 0.4 (60% reduction) variance = 0.07
+        # Tonic reduction mean = 1.6 (60% enhancement) variance = 0.18
         reduction_shape,reduction_scale = gamma_parms(1.6,0.18)
         GrC.reduce_tonic[:] = np.random.RandomState(seed=1).gamma(reduction_shape,reduction_scale,nGrC)
     else:
