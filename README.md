@@ -16,6 +16,7 @@ For Serotonin(5-HT), further variables are referd in: <br/>
 | --------- | ----------------------- | ----------------------------- | ----------------- |
 |    ACh    |          -55            | N(0.4,0.07) _(40% reduction)_ |     no change     |
 |    5-HT   |          -47            | N(1.6, 0.18) _(60% enhanced)_ |         20        |
+* As no researches are founded mentioning GABAa receptor decay time constant of Golgi cell, rescaling decay time constant of Golgi cell in 5-HT condition is refered from well known Lugaro cell- Golgi synapse, GABAergic slow IPSC.
 ### Inhibitory Golgi-Golgi synapse in Serotonin condition
 In 5-HT treated condition, negative feedback of Golgi cell to other Golgi cells limiting excessive inhibition of Golgi cell to Granule cell layer are implemented through inhibitory Golgi-Golgi synapses.<br/>
 5-HT specific Golgi-Golgi synapse properties are described below:
