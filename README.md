@@ -20,7 +20,7 @@ For Serotonin(5-HT), further variables are referd in: <br/>
 ### Inhibitory Golgi-Golgi synapse in Serotonin condition
 In 5-HT treated condition, negative feedback of Golgi cell to other Golgi cells limiting excessive inhibition of Golgi cell to Granule cell layer are implemented through inhibitory Golgi-Golgi synapses.<br/>
 5-HT specific Golgi-Golgi synapse properties are described below:
-* 20% are connencted among Golgi cells
+* 20% are connected among Golgi cells
 * average synaptic weight : 0.33±0.08 nS
 * IPSC failure rate : ~20%
 ### References
