@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,9 +13,6 @@ import seaborn as sns
 import itertools
 
 
-# In[2]:
-
-
 mf_grc = np.load('mf_grc.npy', allow_pickle=True).item()
 mf_goc = np.load('mf_goc.npy', allow_pickle=True).item()
 goc_grc = np.load('goc_grc.npy', allow_pickle=True)
@@ -29,13 +20,7 @@ grc_seq = np.load('grc_seq.npy', allow_pickle=True)
 grc_label = np.load('grc_label.npy', allow_pickle=True)
 
 
-# In[3]:
-
-
 Condition = 'Control'
-
-
-# In[4]:
 
 
 @check_units(mu=1,sigma=1,result=1)
@@ -49,10 +34,7 @@ def gamma_parms(mu,sigma):
     scale = float(sol_theta)
     return shape, scale
 
-
-# In[5]:
-
-
+#hyperparameters
 runtime = 10000
 
 # Synaptic weight parameters
@@ -130,10 +112,6 @@ S2_scale = M2_scale/(sigma2_scale*np.sqrt(2*np.pi))
 bound = 3* nS
 tau_w_n = 2000 * ms
 
-
-# In[6]:
-
-
 #GrC equation
 GrC_eqs = '''
 dv/dt   = (g_l_GrC*(E_l_GrC-v) + (g_e+g_n)*(E_e_GrC-v) + (g_i+g_t)*(E_i_GrC-v))/C_m_GrC : volt (unless refractory)
@@ -158,10 +136,6 @@ dg_n/dt = (-g_n + sigma_n_GoC * sqrt(tau_n) * xi)/tau_n : siemens
 E_l_GoC : volt (constant)
 '''
 
-
-# In[7]:
-
-
 GrC = NeuronGroup(3000,
                   Equations(GrC_eqs,
                                     g_l   = g_l_GrC,
@@ -182,10 +156,6 @@ GrC.w_mean[mf_grc['grc3']] = 0.8
 GrC.w_scale = 1
 GrC.w_scale[mf_grc['grc3']] = 0.8
 
-
-# In[8]:
-
-
 GoC = NeuronGroup(5,
                   Equations(GoC_eqs,
                                     g_l = g_l_GoC,
@@ -200,10 +170,6 @@ GoC = NeuronGroup(5,
                   method     = 'euler')
 GoC.v   = V_r_GoC
 GoC.E_l_GoC = E_l_GoC 
-
-
-# In[9]:
-
 
 def burst_spikes(r, min_spikes=1, max_spikes=5):
     # Scale alpha and beta to shift the distribution's mean based on r
@@ -292,18 +258,11 @@ for x in range(30):
     indices_3.extend(np.ones(len(spike_train))*x)
 spike_train_3 = spike_train_3*second
 
-
-# In[10]:
-
-
 mf_input1 = SpikeGeneratorGroup(500, indices_1, spike_train_1)
 mf_input2 = SpikeGeneratorGroup(500, indices_2, spike_train_2)
 mf_input3 = SpikeGeneratorGroup(30, indices_3, spike_train_3)
 
-
-# In[11]:
-
-
+#Synapse
 M1_GrC = Synapses(mf_input1,GrC,
                  model='''w_e_GrC : siemens
                           last_prespike : second
@@ -392,10 +351,6 @@ M2_GoC = Synapses(mf_input2,GoC,
 M2_GoC.connect(i = mf_goc['mf2'], j = mf_goc['goc2'])
 M2_GoC.w_e_GoC_M[:] = fixed_w_e_GoC_M
 
-
-# In[12]:
-
-
 #randomize weight
 @network_operation(dt=runtime*ms, when='start')
 def update_input():
@@ -420,9 +375,7 @@ def update_input():
         tempidx += 1
 
 
-# In[14]:
-
-
+#run
 M = SpikeMonitor(GrC)
 MO = SpikeMonitor(GoC)
 state_GrC  = StateMonitor(GrC, ['g_e_tot_GrC1','g_i_tot_GrC','w_scale'], dt=1*ms, record = True)
@@ -446,20 +399,12 @@ np.save('STDP_synaptic_weight1',state_syn1.w_e_GrC)
 np.save('STDP_synaptic_weight2',state_syn2.w_e_GrC)
 np.save('test_i',GrC_GoC.w_e_GoC)
 
-
-# In[15]:
-
-
 #GoC firing plot
 plt.figure(figsize=(10, 2))
 plt.plot(MO.t/ ms, MO.i,'|', markersize=10)
 plt.xlim(0,10000)
 plt.ylim(min(MO.i)-0.5, max(MO.i)+0.5)
 plt.show
-
-
-# In[16]:
-
 
 #input(MF) firing plot
 spike_monitor1 = SpikeMonitor(mf_input1)
