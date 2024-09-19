@@ -5,6 +5,9 @@ import os
 import random
 from sympy import *
 from pandas import Series, DataFrame
+from matplotlib import *
+import pandas as pd
+import scipy.sparse
 
 mf_grc = np.load('mf_grc.npy', allow_pickle=True).item()
 mf_goc = np.load('mf_goc.npy', allow_pickle=True).item()
